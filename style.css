@@ -16,20 +16,25 @@ body {
     border: 1px solid grey;
     outline: none;
     font-size: 1.4rem;
+    border-radius: 0.3rem;
 }
 .input-field {
     margin-bottom: 1.2rem;
 }
 .keyboard {
     padding: 0.85rem;
-    border: 1px solid black;
     width: 44rem;
     border-radius: 0.3rem;
+    background-color: #b5b5bd;
+    border-bottom: 3px solid darkgray;
 }
 .row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.35rem;
+}
+.last-row {
+    margin-bottom: 1rem;
 }
 .button {
     /* display: block; */
@@ -40,6 +45,12 @@ body {
     cursor: pointer;
     transition: .3s;
     font-size: 1.4rem;
+    background-color: #161515;
+    color: #e1dede;
+    border-radius: 0.3rem;
+}
+.button:hover {
+    color: #c6c6cb;
 }
 .symbol-btn,
 .btn-up,
