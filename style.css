@@ -48,6 +48,7 @@ body {
     background-color: #161515;
     color: #e1dede;
     border-radius: 0.3rem;
+    transition: .3s;
 }
 .button:hover {
     color: #c6c6cb;
