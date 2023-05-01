@@ -235,7 +235,7 @@ document.addEventListener('keydown', (e) => {
 
         if (e.key == el.textContent) {
             el.classList.add('active')
-            if (cursor && el.textContent != 'Backspace') {
+            if (cursor && el.textContent != 'Backspace' && el.textContent != 'Delete') {
                 arr.splice(cursor, 0, el.textContent)
                 cursor++
             }
@@ -243,7 +243,7 @@ document.addEventListener('keydown', (e) => {
                 cursor--
                 arr.splice(cursor, 1)
             }
-            else if (!cursor && el.textContent != 'Backspace') {
+            else if (!cursor && el.textContent != 'Backspace' && el.textContent != 'Delete') {
                 arr.push(el.textContent)
             }
             else if (!cursor && el.textContent == 'Backspace') {
@@ -251,10 +251,9 @@ document.addEventListener('keydown', (e) => {
                 cursor--
                 arr.splice(cursor, 1)
             }
-            // else if (el.textContent == 'Delete') {
-            //     arr.splice(cursor, 1)
-            //     cursor++
-            // }
+            else if (el.textContent == 'Delete') {
+                arr.splice(cursor, 1)
+            }
             textarea.textContent = arr.join('')
         }
     })
@@ -270,7 +269,7 @@ buttons.forEach((el) => {
 
         console.log(arr)
 
-        if (cursor && e.target.textContent != 'Backspace') {
+        if (cursor && e.target.textContent != 'Backspace' && e.target.textContent != 'Delete') {
             arr.splice(cursor, 0, e.target.textContent)
             cursor++
         }
@@ -278,7 +277,7 @@ buttons.forEach((el) => {
             cursor--
             arr.splice(cursor, 1)
         }
-        else if (!cursor && e.target.textContent != 'Backspace') {
+        else if (!cursor && e.target.textContent != 'Backspace' && e.target.textContent != 'Delete') {
             arr.push(e.target.textContent)
         }
         else if (!cursor && e.target.textContent == 'Backspace') {
@@ -286,6 +285,9 @@ buttons.forEach((el) => {
             cursor--
             arr.splice(cursor, 1)
         }
+        else if (e.target.textContent == 'Delete') {
+            arr.splice(cursor, 1)
+            }
         textarea.textContent = arr.join('')
     })
 })
