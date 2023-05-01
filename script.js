@@ -2,6 +2,8 @@ const textarea = document.querySelector('.textarea');
 const buttons = document.querySelectorAll('.button');
 const capsLock = document.querySelector('.capslock');
 const shifts = document.querySelectorAll('.shift');
+const del = document.querySelector('.del');
+
 
 // let isCapsLock = false;
 // capsLock.addEventListener('click', () => {
@@ -245,9 +247,14 @@ document.addEventListener('keydown', (e) => {
                 arr.push(el.textContent)
             }
             else if (!cursor && el.textContent == 'Backspace') {
+                cursor = arr.length
                 cursor--
                 arr.splice(cursor, 1)
             }
+            // else if (el.textContent == 'Delete') {
+            //     arr.splice(cursor, 1)
+            //     cursor++
+            // }
             textarea.textContent = arr.join('')
         }
     })
@@ -275,6 +282,7 @@ buttons.forEach((el) => {
             arr.push(e.target.textContent)
         }
         else if (!cursor && e.target.textContent == 'Backspace') {
+            cursor = arr.length
             cursor--
             arr.splice(cursor, 1)
         }
@@ -283,3 +291,6 @@ buttons.forEach((el) => {
 })
 
 
+document.addEventListener('keydown', (e) => {
+    console.log(e)
+})
