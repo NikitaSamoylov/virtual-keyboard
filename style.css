@@ -87,3 +87,6 @@ body {
 .shift {
     width: 6.3rem;
 }
+.active {
+    background-color: orange;
+}
