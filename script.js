@@ -3,6 +3,8 @@ const buttons = document.querySelectorAll('.button');
 const capsLock = document.querySelector('.capslock');
 const shifts = document.querySelectorAll('.shift');
 const del = document.querySelector('.del');
+const space = document.querySelector('.space')
+
 
 
 // let isCapsLock = false;
@@ -235,7 +237,7 @@ document.addEventListener('keydown', (e) => {
 
         if (e.key == el.textContent) {
             el.classList.add('active')
-            if (cursor && el.textContent != 'Backspace' && el.textContent != 'Delete') {
+            if (cursor && el.textContent != 'Backspace' && el.textContent != 'Delete' && el.textContent != ' '  ) {
                 arr.splice(cursor, 0, el.textContent)
                 cursor++
             }
@@ -243,7 +245,7 @@ document.addEventListener('keydown', (e) => {
                 cursor--
                 arr.splice(cursor, 1)
             }
-            else if (!cursor && el.textContent != 'Backspace' && el.textContent != 'Delete') {
+            else if (!cursor && el.textContent != 'Backspace' && el.textContent != 'Delete' && el.textContent != ' '  ) {
                 arr.push(el.textContent)
             }
             else if (!cursor && el.textContent == 'Backspace') {
@@ -253,6 +255,13 @@ document.addEventListener('keydown', (e) => {
             }
             else if (el.textContent == 'Delete') {
                 arr.splice(cursor, 1)
+            }
+            else if (!cursor && el.textContent == ' '  ) {
+                arr.push(' ')
+            }
+            else if (cursor && el.textContent == ' ' ) {
+                arr.splice(cursor, 0, ' ')
+                cursor++
             }
             textarea.textContent = arr.join('')
         }
@@ -267,9 +276,7 @@ buttons.forEach((el) => {
         })
         e.target.classList.add('active')
 
-        console.log(arr)
-
-        if (cursor && e.target.textContent != 'Backspace' && e.target.textContent != 'Delete') {
+        if (cursor && e.target.textContent != 'Backspace' && e.target.textContent != 'Delete' && e.target.textContent != ' ') {
             arr.splice(cursor, 0, e.target.textContent)
             cursor++
         }
@@ -277,7 +284,7 @@ buttons.forEach((el) => {
             cursor--
             arr.splice(cursor, 1)
         }
-        else if (!cursor && e.target.textContent != 'Backspace' && e.target.textContent != 'Delete') {
+        else if (!cursor && e.target.textContent != 'Backspace' && e.target.textContent != 'Delete' && e.target.textContent != ' ') {
             arr.push(e.target.textContent)
         }
         else if (!cursor && e.target.textContent == 'Backspace') {
@@ -287,7 +294,15 @@ buttons.forEach((el) => {
         }
         else if (e.target.textContent == 'Delete') {
             arr.splice(cursor, 1)
-            }
+        }
+        else if (cursor && e.target.textContent == ' ') {
+            arr.splice(cursor, 0, ' ')
+            cursor++
+        }
+        else if (!cursor && e.target.textContent == ' ') {
+            arr.push(' ')
+        }
+        
         textarea.textContent = arr.join('')
     })
 })
